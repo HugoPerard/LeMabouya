@@ -1,33 +1,25 @@
 import React, { Suspense } from 'react';
 
 import { ReactQueryDevtools } from 'react-query/devtools';
-import { BrowserRouter, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch } from 'react-router-dom';
 
 import { PageLogin } from '@/app/auth/PageLogin';
 import { PageLogout } from '@/app/auth/PageLogout';
 import { Layout, Loader } from '@/app/layout';
-import { Route, RouteAdmin, RoutePublic, RoutePublicOnly } from '@/app/router';
+import { RouteAdmin, RoutePublic, RoutePublicOnly } from '@/app/router';
 import { Error404, ErrorBoundary } from '@/errors';
 
 const AdminRoutes = React.lazy(() => import('@/app/admin/AdminRoutes'));
 const AccountRoutes = React.lazy(() => import('@/app/account/AccountRoutes'));
-const DashboardRoutes = React.lazy(
-  () => import('@/app/dashboard/DashboardRoutes')
-);
+const Routes = React.lazy(() => import('@/app/pages/Routes'));
 
 export const App = () => {
   return (
     <ErrorBoundary>
-      <BrowserRouter basename="/app/">
+      <BrowserRouter basename="/">
         <Layout>
           <Suspense fallback={<Loader />}>
             <Switch>
-              <RoutePublic
-                exact
-                path="/"
-                render={() => <Redirect to="/dashboard" />}
-              />
-
               <RoutePublicOnly
                 exact
                 path="/login"
@@ -37,7 +29,7 @@ export const App = () => {
 
               <RoutePublic path="/account" render={() => <AccountRoutes />} />
 
-              <Route path="/dashboard" render={() => <DashboardRoutes />} />
+              <RoutePublic path="/" render={() => <Routes />} />
 
               <RouteAdmin path="/admin" render={() => <AdminRoutes />} />
 

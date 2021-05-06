@@ -2,18 +2,19 @@ import React from 'react';
 
 import { Switch, useRouteMatch } from 'react-router-dom';
 
-import { PageDashboard } from '@/app/dashboard/PageDashboard';
+import { PageLanding } from '@/app/pages/PageLanding';
 import { Route } from '@/app/router';
 import { Error404 } from '@/errors';
 
-const DashboardRoutes = () => {
+const Routes = () => {
   const { url } = useRouteMatch();
+  console.log({ url });
   return (
     <Switch>
-      <Route exact path={url} render={() => <PageDashboard />} />
+      <Route exact path={url} render={() => <PageLanding />} />
       <Route path="*" render={() => <Error404 />} />
     </Switch>
   );
 };
 
-export default DashboardRoutes;
+export default Routes;
