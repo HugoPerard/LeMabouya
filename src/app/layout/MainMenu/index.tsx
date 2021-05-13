@@ -1,65 +1,58 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
-import { Stack, Box } from '@chakra-ui/react';
+import { Box, BoxProps, Text, Flex, HStack } from '@chakra-ui/react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 
-import { LayoutContext } from '@/app/layout';
+interface MainMenuItemProps extends BoxProps {
+  to?: string;
+  isActive?: boolean;
+  colorScheme?: string;
+}
 
-const MainMenuItem = ({ to, ...rest }: any) => {
-  const { navOnClose } = useContext(LayoutContext);
-  const { pathname } = useLocation();
-  const isActive = pathname.startsWith(to);
+export const MainMenuItem: React.FC<MainMenuItemProps> = ({
+  children,
+  to,
+  isActive = false,
+  colorScheme = 'gray',
+  ...rest
+}) => {
+  const location = useLocation();
   return (
     <Box
       as={RouterLink}
       to={to}
-      bg="transparent"
-      justifyContent="flex-start"
-      position="relative"
-      opacity={isActive ? 1 : 0.8}
-      fontWeight="bold"
-      borderRadius="md"
-      px="4"
-      py="2"
-      _active={{ bg: 'gray.700' }}
-      _hover={{
-        bg: 'gray.900',
-        _after: {
-          opacity: 1,
-          w: '2rem',
-        },
-      }}
-      _focus={{
-        outline: 'none',
-        bg: 'gray.900',
-        _after: {
-          opacity: 1,
-          w: '2rem',
-        },
-      }}
-      _after={{
-        opacity: isActive ? 1 : 0,
-        content: '""',
-        position: 'absolute',
-        left: { base: 8, md: '50%' },
-        bottom: '0.2em',
-        transform: 'translateX(-50%)',
-        transition: '0.2s',
-        w: isActive ? '2rem' : 0,
-        h: '2px',
-        borderRadius: 'full',
-        bg: 'currentColor',
-      }}
-      onClick={navOnClose}
+      borderColor={
+        location?.pathname === to ? `${colorScheme}.300` : 'transparent'
+      }
+      borderBottomWidth={2}
+      p={1}
       {...rest}
-    />
+    >
+      <Text color={`${colorScheme}.200`}>{children}</Text>
+    </Box>
   );
 };
 
 export const MainMenu = ({ ...rest }) => {
   return (
-    <Stack direction="row" spacing="1" {...rest}>
-      <MainMenuItem to="/dashboard">Dashboard</MainMenuItem>
-    </Stack>
+    <Flex
+      zIndex="2"
+      direction="column"
+      py={4}
+      bg="transparent"
+      position="absolute"
+      left={0}
+      right={0}
+      top={0}
+      color="gray.200"
+      {...rest}
+    >
+      <Box w="full" h="0" pb="safe-top" />
+      <HStack spacing="4" justifyContent="center">
+        <MainMenuItem to="/">Accueil</MainMenuItem>
+        <MainMenuItem to="/kudos">Coups de coeur</MainMenuItem>
+        <MainMenuItem to="/about">À propos</MainMenuItem>
+      </HStack>
+    </Flex>
   );
 };

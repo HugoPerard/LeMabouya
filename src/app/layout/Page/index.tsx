@@ -1,14 +1,6 @@
 import React, { useContext, useLayoutEffect, useRef, useState } from 'react';
 
-import {
-  Box,
-  Flex,
-  FlexProps,
-  HStack,
-  IconButton,
-  Stack,
-} from '@chakra-ui/react';
-import { FiArrowLeft } from 'react-icons/fi';
+import { Box, Flex, FlexProps, HStack, Stack } from '@chakra-ui/react';
 
 import { useFocusMode } from '@/app/layout';
 
@@ -57,26 +49,19 @@ export const PageTopBar = ({
     <Flex
       zIndex="2"
       direction="column"
-      pt="4"
-      pb="4"
-      boxShadow="0 4px 20px rgba(0, 0, 0, 0.05)"
-      bg="white"
+      py={4}
+      bg="transparent"
+      position="absolute"
+      left={0}
+      right={0}
+      top={0}
+      color="gray.200"
       {...rest}
     >
       <Box w="full" h="0" pb="safe-top" />
       <PageContainer>
-        <HStack spacing="4">
-          {showBack && (
-            <Box ml={{ base: 0, lg: '-3.5rem' }}>
-              <IconButton
-                aria-label="Go Back"
-                icon={<FiArrowLeft fontSize="lg" />}
-                variant="ghost"
-                onClick={() => onBack()}
-              />
-            </Box>
-          )}
-          <Box flex="1">{children}</Box>
+        <HStack spacing="4" justifyContent="center">
+          {children}
         </HStack>
       </PageContainer>
     </Flex>

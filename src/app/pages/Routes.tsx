@@ -12,6 +12,8 @@ const Routes = () => {
   return (
     <Switch>
       <Route exact path={url} render={() => <PageLanding />} />
+      <Route exact path="/kudos" render={() => <PageLanding />} />
+      <Route exact path="/about" render={() => <PageLanding />} />
       <Route path="*" render={() => <Error404 />} />
     </Switch>
   );
