@@ -3,6 +3,7 @@ import React from 'react';
 import {
   Box,
   Heading,
+  Stack,
   Text,
   useColorModeValue as mode,
 } from '@chakra-ui/react';
@@ -16,28 +17,32 @@ export const PageLanding = () => {
     <Page bgGradient="linear(to-tl, #dce2e1, #906d47)">
       <Hero />
       <Section image="/sunset.jpg">
-        <Heading
-          as="h1"
-          size="2xl"
-          lineHeight="1"
-          fontWeight="extrabold"
-          letterSpacing="tight"
-        >
-          Connect and engage with{' '}
-          <Box as="mark" color={mode('blue.500', 'blue.300')} bg="transparent">
-            your customers globally
-          </Box>
-        </Heading>
-        <Text
-          mt={4}
-          fontSize="xl"
-          fontWeight="medium"
-          color={mode('gray.600', 'gray.400')}
-        >
-          Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
-          cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat
-          aliqua.
-        </Text>
+        <Stack spacing={4}>
+          <Heading
+            as="h2"
+            size="xl"
+            fontWeight="extrabold"
+            color={mode('blue.500', 'blue.300')}
+            letterSpacing="tight"
+          >
+            Plage de Corps de Garde
+          </Heading>
+          <Text
+            fontSize="xl"
+            fontWeight="medium"
+            color={mode('gray.800', 'gray.600')}
+          >
+            Le magnifique couché de soleil entre le Rocher du Diamant et la
+            Femme Couchée
+          </Text>
+          <Text
+            fontWeight="medium"
+            color={mode('gray.600', 'gray.400')}
+            textAlign="right"
+          >
+            À 3 minutes de la résidence
+          </Text>
+        </Stack>
       </Section>
       <ReverseSection image="/residence.png" />
     </Page>
