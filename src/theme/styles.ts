@@ -1,10 +1,3 @@
-import * as externals from './externals';
-
-const externalsStyles = Object.values(externals).reduce(
-  (acc, cur) => ({ ...acc, ...cur }),
-  {}
-);
-
 export const styles = {
   global: {
     html: {
@@ -20,6 +13,5 @@ export const styles = {
       pr: 'safe-right',
       pb: 'safe-bottom',
     },
-    ...externalsStyles,
   },
 };
