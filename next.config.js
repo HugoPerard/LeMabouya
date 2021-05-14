@@ -20,8 +20,8 @@ module.exports = {
       },
       // Rewrite everything else to use `pages/app`
       {
-        source: '/app/:any*',
-        destination: '/app/',
+        source: '/:any*',
+        destination: '/',
       },
     ];
   },

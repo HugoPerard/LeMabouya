@@ -38,6 +38,7 @@
     "react-i18next": "11.8.14",
     "react-icons": "4.2.0",
     "react-router-dom": "5.2.0",
+    "react-scroll": "1.8.2",
     "swagger-cli": "4.0.4",
     "swagger-ui-react": "3.47.1"
   },

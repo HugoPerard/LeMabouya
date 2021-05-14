@@ -1,8 +1,15 @@
 import { Button } from '@chakra-ui/button';
-import { LightMode } from '@chakra-ui/color-mode';
-import { Box, BoxProps, Center, Heading, Text } from '@chakra-ui/layout';
+import { Box, BoxProps, Center } from '@chakra-ui/layout';
+import { FaChevronDown } from 'react-icons/fa';
+import { Link as ScrollLink } from 'react-scroll';
 
-export const Hero: React.FC<BoxProps> = (props) => {
+import { Icon } from '../Icons';
+
+interface HeroProps extends BoxProps {
+  img: string;
+}
+
+export const Hero: React.FC<HeroProps> = ({ img, children, ...rest }) => {
   return (
     <Box
       as="section"
@@ -10,7 +17,7 @@ export const Hero: React.FC<BoxProps> = (props) => {
       py="12"
       position="relative"
       h="100vh"
-      bgImage="url(/beach.jpg)"
+      bgImage={`url(${img})`}
       bgSize="cover"
       bgPosition="center"
       _after={{
@@ -23,7 +30,7 @@ export const Hero: React.FC<BoxProps> = (props) => {
         inset: 0,
         zIndex: 0,
       }}
-      {...props}
+      {...rest}
     >
       <Box
         maxW={{ base: 'xl', md: '7xl' }}
@@ -40,23 +47,20 @@ export const Hero: React.FC<BoxProps> = (props) => {
           h="full"
           opacity="0.8"
         >
-          <Heading size="2xl" fontWeight="extrabold">
-            Le Mabouya
-          </Heading>
-          <Text fontSize="lg" fontWeight="medium" mt="3">
-            Studio les pieds dans l'eau en Martinique
-          </Text>
-          <LightMode>
+          <>
+            {children}
             <Button
-              colorScheme="blue"
-              size="lg"
-              mt="6"
-              fontWeight="bold"
-              fontSize="md"
+              as={ScrollLink}
+              to="infos"
+              spy={true}
+              smooth={true}
+              marginTop={4}
+              bg="transparent"
+              _hover={{ opacity: 0.7, cursor: 'pointer' }}
             >
-              Regarder les disponibilités
+              <Icon icon={FaChevronDown} iconProps={{ w: 6, h: 6 }} />
             </Button>
-          </LightMode>
+          </>
         </Center>
       </Box>
     </Box>

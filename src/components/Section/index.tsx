@@ -17,6 +17,7 @@ export const Section: React.FC<SectionProps> = ({
       pb="24"
       pos="relative"
       px={{ base: '6', lg: '12' }}
+      h={{ lg: '50vh' }}
       {...rest}
     >
       <Box maxW="7xl" mx="auto">
@@ -44,7 +45,7 @@ export const Section: React.FC<SectionProps> = ({
           width="100%"
           objectFit="cover"
           src={image}
-          alt="Lady working"
+          alt={image}
         />
       </Box>
     </Box>

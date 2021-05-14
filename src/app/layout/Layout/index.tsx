@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from 'react';
 
-import { Flex, useDisclosure } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { useLocation } from 'react-router-dom';
 
-import { TopBar, LayoutContext } from '@/app/layout';
+import { TopBar } from '@/app/layout';
 import { Viewport } from '@/components';
+
+import { LayoutContext } from '../LayoutContext';
 
 export const Layout = ({ children }) => {
   const [isFocusMode, setIsFocusMode] = useState(false);
-  const {
-    isOpen: navIsOpen,
-    onClose: navOnClose,
-    onOpen: navOnOpen,
-  } = useDisclosure();
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -20,11 +17,11 @@ export const Layout = ({ children }) => {
   }, [pathname]);
 
   return (
-    <LayoutContext.Provider
-      value={{ isFocusMode, setIsFocusMode, navIsOpen, navOnClose, navOnOpen }}
-    >
+    <LayoutContext.Provider value={{ isFocusMode, setIsFocusMode }}>
       <Viewport>
-        {!isFocusMode && <TopBar />}
+        <TopBar
+          {...(isFocusMode ? { color: 'brand.600' } : { color: 'gray.200' })}
+        />
         <Flex flex="1" direction="column">
           {children}
         </Flex>

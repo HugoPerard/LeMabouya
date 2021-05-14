@@ -1,7 +1,10 @@
 import React from 'react';
 
-import { Box, BoxProps, Text, Flex, HStack } from '@chakra-ui/react';
+import { Box, BoxProps, Text, Flex, HStack, Button } from '@chakra-ui/react';
+import { FaAirbnb } from 'react-icons/fa';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
+
+import { DISPONIBILITIES_URL } from '@/constants';
 
 interface MainMenuItemProps extends BoxProps {
   to?: string;
@@ -28,12 +31,13 @@ export const MainMenuItem: React.FC<MainMenuItemProps> = ({
       p={1}
       {...rest}
     >
-      <Text color={`${colorScheme}.200`}>{children}</Text>
+      <Text>{children}</Text>
     </Box>
   );
 };
 
-export const MainMenu = ({ ...rest }) => {
+export const MainMenu = ({ color = 'gray.200', ...rest }) => {
+  const itemColorScheme = color.split('.')[0];
   return (
     <Flex
       zIndex="2"
@@ -44,14 +48,30 @@ export const MainMenu = ({ ...rest }) => {
       left={0}
       right={0}
       top={0}
-      color="gray.200"
+      color={color}
       {...rest}
     >
       <Box w="full" h="0" pb="safe-top" />
       <HStack spacing="4" justifyContent="center">
-        <MainMenuItem to="/">Accueil</MainMenuItem>
-        <MainMenuItem to="/kudos">Coups de coeur</MainMenuItem>
-        <MainMenuItem to="/about">À propos</MainMenuItem>
+        <MainMenuItem to="/" colorScheme={itemColorScheme}>
+          Accueil
+        </MainMenuItem>
+        <MainMenuItem to="/kudos" colorScheme={itemColorScheme}>
+          Coups de coeur
+        </MainMenuItem>
+        <MainMenuItem to="/about" colorScheme={itemColorScheme}>
+          À propos
+        </MainMenuItem>
+        <Button
+          as={RouterLink}
+          to={{ pathname: DISPONIBILITIES_URL }}
+          target="_blank"
+          colorScheme="brand"
+          size="xs"
+          leftIcon={<FaAirbnb />}
+        >
+          Disponibilités
+        </Button>
       </HStack>
     </Flex>
   );
