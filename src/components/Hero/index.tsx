@@ -25,7 +25,7 @@ export const Hero: React.FC<HeroProps> = ({ img, children, ...rest }) => {
         display: 'block',
         w: 'full',
         h: 'full',
-        bg: 'blackAlpha.700',
+        bg: 'blackAlpha.600',
         position: 'absolute',
         inset: 0,
         zIndex: 0,
@@ -45,7 +45,7 @@ export const Hero: React.FC<HeroProps> = ({ img, children, ...rest }) => {
           textAlign="center"
           color="white"
           h="full"
-          opacity="0.8"
+          opacity="0.9"
         >
           <>
             {children}
