@@ -8,7 +8,6 @@ import {
   LightMode,
   Text,
 } from '@chakra-ui/react';
-import Head from 'next/head';
 import Link from 'next/link';
 import canapeImage from 'public/assets/canape.jpg';
 import cuisineImage from 'public/assets/cuisine.jpg';
@@ -30,7 +29,7 @@ const PageLanding = () => {
       bg="blackAlpha.300"
       // bgGradient="linear(to-br, #0F0F0B, #605B56, #67553F)"
     >
-      <Head>Le Mabouya</Head>
+      <title>Le Mabouya</title>
       <Nav />
       <Hero img="assets/sunset-residence.jpg">
         <Heading size="2xl" fontWeight="extrabold">

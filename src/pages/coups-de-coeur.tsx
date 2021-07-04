@@ -7,7 +7,6 @@ import {
   Text,
   useColorModeValue as mode,
 } from '@chakra-ui/react';
-import Head from 'next/head';
 import anseFiguierImage from 'public/assets/anse-figuier.jpg';
 import corpsDeGardeSunsetImage from 'public/assets/sunset.jpg';
 
@@ -16,7 +15,7 @@ import { Hero, ReverseSection, Section, Page, Nav } from '@/components';
 const PageKudos = () => {
   return (
     <Page bg="gray.500">
-      <Head>Coups de coeur | Le Mabouya</Head>
+      <title>Coups de coeur | Le Mabouya</title>
       <Nav />
       <Hero img="assets/beach.jpg">
         <Heading size="2xl" fontWeight="extrabold">
