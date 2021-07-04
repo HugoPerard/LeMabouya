@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
-import { Box, Image, Text } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
+import Image from 'next/image';
 
 interface PhotoCardProps {
   src: string;
@@ -23,15 +24,15 @@ export const PhotoCard = ({
   };
 
   return (
-    <Box onMouseEnter={onEnter} onMouseLeave={onLeave} position="relative">
-      <Image
-        src={src}
-        alt={alt}
-        maxH="500"
-        w="100%"
-        borderRadius="lg"
-        boxShadow="lg"
-      />
+    <Box
+      onMouseEnter={onEnter}
+      onMouseLeave={onLeave}
+      position="relative"
+      h="400"
+      w="100%"
+      boxShadow="lg"
+    >
+      <Image src={src} alt={alt} layout="fill" objectFit="fill" />
       {children && (
         <Text
           lineHeight="1"

@@ -7,14 +7,18 @@ import {
   Text,
   useColorModeValue as mode,
 } from '@chakra-ui/react';
+import Head from 'next/head';
+import anseFiguierImage from 'public/assets/anse-figuier.jpg';
+import corpsDeGardeSunsetImage from 'public/assets/sunset.jpg';
 
-import { Page } from '@/app/layout';
-import { Hero, ReverseSection, Section } from '@/components';
+import { Hero, ReverseSection, Section, Page, Nav } from '@/components';
 
-export const PageKudos = () => {
+const PageKudos = () => {
   return (
     <Page bg="gray.500">
-      <Hero img="beach.jpg">
+      <Head>Coups de coeur | Le Mabouya</Head>
+      <Nav />
+      <Hero img="assets/beach.jpg">
         <Heading size="2xl" fontWeight="extrabold">
           A proximité du Mabouya
         </Heading>
@@ -24,7 +28,7 @@ export const PageKudos = () => {
       </Hero>
 
       <Box id="infos">
-        <Section image="/anse-figuier.jpg">
+        <Section image={anseFiguierImage}>
           <Stack spacing={4}>
             <Heading
               as="h2"
@@ -52,7 +56,7 @@ export const PageKudos = () => {
             </Text>
           </Stack>
         </Section>
-        <ReverseSection image="/sunset.jpg">
+        <ReverseSection image={corpsDeGardeSunsetImage}>
           <Stack spacing={4}>
             <Heading
               as="h2"
@@ -84,3 +88,5 @@ export const PageKudos = () => {
     </Page>
   );
 };
+
+export default PageKudos;

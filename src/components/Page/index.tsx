@@ -2,8 +2,6 @@ import React, { useContext, useLayoutEffect, useRef, useState } from 'react';
 
 import { Box, Flex, FlexProps, HStack, Stack } from '@chakra-ui/react';
 
-import { useFocusMode } from '@/app/layout';
-
 const PageContext = React.createContext(null);
 
 const PageContainer = ({ children, ...rest }) => {
@@ -144,7 +142,6 @@ export const Page = ({
   nav = null,
   ...rest
 }: PageProps) => {
-  useFocusMode(isFocusMode);
   return (
     <PageContext.Provider
       value={{

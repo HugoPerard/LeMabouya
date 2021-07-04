@@ -1,8 +1,9 @@
 import React from 'react';
 
 import { Box, BoxProps, Text, Flex, HStack, Button } from '@chakra-ui/react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { FaAirbnb } from 'react-icons/fa';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
 
 import { DISPONIBILITIES_URL } from '@/constants';
 
@@ -19,24 +20,25 @@ export const MainMenuItem: React.FC<MainMenuItemProps> = ({
   colorScheme = 'gray',
   ...rest
 }) => {
-  const location = useLocation();
+  const router = useRouter();
   return (
-    <Box
-      as={RouterLink}
-      to={to}
-      borderColor={
-        location?.pathname === to ? `${colorScheme}.300` : 'transparent'
-      }
-      borderBottomWidth={2}
-      p={1}
-      {...rest}
-    >
-      <Text>{children}</Text>
-    </Box>
+    <Link href={to}>
+      <Box
+        borderColor={
+          router?.pathname === to ? `${colorScheme}.300` : 'transparent'
+        }
+        borderBottomWidth={2}
+        p={1}
+        cursor="pointer"
+        {...rest}
+      >
+        <Text>{children}</Text>
+      </Box>
+    </Link>
   );
 };
 
-export const MainMenu = ({ color = 'gray.200', ...rest }) => {
+export const Nav = ({ color = 'gray.200', ...rest }) => {
   const itemColorScheme = color.split('.')[0];
   return (
     <Flex
@@ -56,22 +58,22 @@ export const MainMenu = ({ color = 'gray.200', ...rest }) => {
         <MainMenuItem to="/" colorScheme={itemColorScheme}>
           Accueil
         </MainMenuItem>
-        <MainMenuItem to="/kudos" colorScheme={itemColorScheme}>
+        <MainMenuItem to="/coups-de-coeur" colorScheme={itemColorScheme}>
           Coups de coeur
         </MainMenuItem>
-        <MainMenuItem to="/about" colorScheme={itemColorScheme}>
+        {/* <MainMenuItem to="/a-propos" colorScheme={itemColorScheme}>
           À propos
-        </MainMenuItem>
-        <Button
-          as={RouterLink}
-          to={{ pathname: DISPONIBILITIES_URL }}
-          target="_blank"
-          colorScheme="brand"
-          size="xs"
-          leftIcon={<FaAirbnb />}
-        >
-          Disponibilités
-        </Button>
+        </MainMenuItem> */}
+        <Link href={DISPONIBILITIES_URL} passHref>
+          <Button
+            target="_blank"
+            colorScheme="brand"
+            size="xs"
+            leftIcon={<FaAirbnb />}
+          >
+            Disponibilités
+          </Button>
+        </Link>
       </HStack>
     </Flex>
   );

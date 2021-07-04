@@ -6,13 +6,15 @@ import {
   Text,
   useColorModeValue as mode,
 } from '@chakra-ui/react';
+import Head from 'next/head';
 
-import { Page } from '@/app/layout';
-import { ReverseSection, Section } from '@/components';
+import { ReverseSection, Section, Page, Nav } from '@/components';
 
-export const PageAbout = () => {
+const PageAbout = () => {
   return (
     <Page bgGradient="linear(to-tl, #dce2e1, #906d47)" isFocusMode>
+      <Head>A propos - Le Mabouya</Head>
+      <Nav />
       <Section image="/sunset.jpg">
         <Stack spacing={4}>
           <Heading
@@ -45,3 +47,5 @@ export const PageAbout = () => {
     </Page>
   );
 };
+
+export default PageAbout;
