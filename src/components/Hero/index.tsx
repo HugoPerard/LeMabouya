@@ -58,7 +58,9 @@ export const Hero: React.FC<HeroProps> = ({ img, children, ...rest }) => {
               bg="transparent"
               _hover={{ opacity: 0.7, cursor: 'pointer' }}
             >
-              <Icon icon={FaChevronDown} iconProps={{ w: 6, h: 6 }} />
+              <Icon icon={FaChevronDown} mr="2" />
+              Voir plus
+              <Icon icon={FaChevronDown} ml="2" />
             </Button>
           </>
         </Center>
