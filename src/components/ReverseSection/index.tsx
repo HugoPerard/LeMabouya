@@ -1,5 +1,9 @@
 import { Img } from '@chakra-ui/image';
-import { Box, useColorModeValue as mode } from '@chakra-ui/react';
+import {
+  Box,
+  useBreakpointValue,
+  useColorModeValue as mode,
+} from '@chakra-ui/react';
 
 import { SectionProps } from '@/components/Section';
 
@@ -8,6 +12,7 @@ export const ReverseSection: React.FC<SectionProps> = ({
   children,
   ...rest
 }) => {
+  const isMobile = useBreakpointValue({ base: true, lg: false });
   return (
     <Box
       as="section"
@@ -18,34 +23,26 @@ export const ReverseSection: React.FC<SectionProps> = ({
       h={{ base: '100vh', lg: '50vh' }}
       {...rest}
     >
+      {isMobile && <Box pb={4}>{children}</Box>}
       <Box
         pos={{ lg: 'absolute' }}
         insetY={{ lg: '0' }}
         insetStart={{ lg: '0' }}
-        bg="gray.50"
         w={{ base: 'full', lg: '50%' }}
         height={{ base: '96', lg: 'full' }}
         sx={{
           clipPath: { lg: 'polygon(0% 0%, 96% 0%, 88% 100%, 0% 100%)' },
         }}
       >
-        <Img
-          height="100%"
-          width="100%"
-          objectFit="cover"
-          src={image}
-          alt={image}
-        />
+        <Img src={image} alt={image} />
       </Box>
-      <Box maxW="7xl" ml={{ lg: '55%' }}>
-        <Box
-          maxW={{ lg: 'md', xl: 'xl' }}
-          pt={{ base: '10', lg: '20' }}
-          pb={{ base: '4', lg: '8' }}
-        >
-          {children}
+      {!isMobile && (
+        <Box maxW="7xl" ml="55%">
+          <Box maxW={{ lg: 'md', xl: 'xl' }} pt="20" pb="8">
+            {children}
+          </Box>
         </Box>
-      </Box>
+      )}
     </Box>
   );
 };
