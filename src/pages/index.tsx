@@ -92,7 +92,7 @@ const PageLanding = () => {
         </GridItem>
         <GridItem>
           <PhotoCard src={cuisineImage} alt="Cuisine">
-            La cuisine équipée, notamment d'un four, de deux plaques de cuisson,
+            La cuisine équipée, notamment d'un four, d'une plaque de cuisson,
             d'une machine à laver, d'un micro-onde, d'un grille-pain et d'une
             cafetière
           </PhotoCard>
