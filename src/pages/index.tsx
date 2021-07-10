@@ -33,7 +33,7 @@ const PageLanding = () => {
       <Nav />
       <Hero img="assets/sunset-residence.jpg">
         <Heading size="2xl" fontWeight="extrabold">
-          Le Mabouya
+          🦎 Le Mabouya 🦎
         </Heading>
         <Text fontSize="lg" fontWeight="medium" mt="3">
           Studio les pieds dans l'eau en Martinique

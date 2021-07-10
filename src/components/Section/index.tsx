@@ -1,5 +1,9 @@
-import { Box, BoxProps, useColorModeValue as mode } from '@chakra-ui/react';
-import Image from 'next/image';
+import {
+  Box,
+  BoxProps,
+  Img,
+  useColorModeValue as mode,
+} from '@chakra-ui/react';
 
 export interface SectionProps extends BoxProps {
   image: string;
@@ -40,7 +44,13 @@ export const Section: React.FC<SectionProps> = ({
           clipPath: { lg: 'polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%)' },
         }}
       >
-        <Image src={image} alt={image} layout="fill" objectFit="fill" />
+        <Img
+          height="100%"
+          width="100%"
+          objectFit="cover"
+          src={image}
+          alt={image}
+        />
       </Box>
     </Box>
   );
