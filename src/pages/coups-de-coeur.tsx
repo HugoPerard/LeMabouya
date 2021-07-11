@@ -27,7 +27,7 @@ const PageKudos = () => {
       <Nav />
       <Hero img="assets/beach.jpg">
         <Heading size="xl" fontWeight="extrabold">
-          Nous partageons avec vous nos coups en Martinique
+          Nous partageons avec vous nos coups de coeur en Martinique
         </Heading>
         <Heading fontSize="lg" fontWeight="medium" mt="3">
           A proximité du Mabouya 🦎
@@ -51,8 +51,8 @@ const PageKudos = () => {
               fontWeight="medium"
               color={mode('gray.800', 'gray.600')}
             >
-              Le magnifique couché de soleil entre le Rocher du Diamant et la
-              Femme Couchée
+              La superbe plage de sable blanc et son eau turquoise, l'endroit
+              idéal pour passer une journée à la plage
             </Text>
             <Text
               fontWeight="medium"
@@ -79,8 +79,8 @@ const PageKudos = () => {
               fontWeight="medium"
               color={mode('gray.800', 'gray.600')}
             >
-              Reservez votre menu, selon l'arrivage du jour, en arrivant à la
-              plage pour profiter de ce restaurant
+              Reservez votre menu, selon l'arrivage du jour, dès votre arrivée à
+              la plage pour profiter de ce restaurant
             </Text>
             <Text
               fontWeight="medium"
