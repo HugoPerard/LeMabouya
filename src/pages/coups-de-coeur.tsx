@@ -20,7 +20,7 @@ import { Hero, ReverseSection, Section, Page, Nav } from '@/components';
 
 const PageKudos = () => {
   return (
-    <Page bg="gray.500">
+    <Page>
       <Head>
         <title>Coups de coeur | Le Mabouya</title>
       </Head>

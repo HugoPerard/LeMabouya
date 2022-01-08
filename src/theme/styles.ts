@@ -1,7 +1,7 @@
 export const styles = {
   global: {
     html: {
-      bg: 'gray.800',
+      bg: 'gray.50',
     },
     body: {
       bg: 'gray.50',
