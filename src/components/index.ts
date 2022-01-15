@@ -6,3 +6,5 @@ export * from './PhotoCard';
 export * from './Viewport';
 export * from './Section';
 export * from './ReverseSection';
+export * from './Gallery';
+export * from './Carousel';

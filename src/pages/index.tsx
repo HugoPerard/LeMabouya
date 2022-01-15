@@ -3,27 +3,16 @@ import React from 'react';
 import {
   AspectRatio,
   Button,
-  Flex,
-  Grid,
-  GridItem,
   Heading,
   LightMode,
   Stack,
   Text,
 } from '@chakra-ui/react';
 import Link from 'next/link';
-import canapeImage from 'public/assets/canape.jpg';
-import cuisineImage from 'public/assets/cuisine.jpg';
-import doucheImage from 'public/assets/douche.jpg';
-import equipementsImage from 'public/assets/equipements.jpg';
-import litImage from 'public/assets/lit.jpg';
-import planImage from 'public/assets/plan.png';
-import residenceImage from 'public/assets/residence.png';
-import salleDeBainImage from 'public/assets/salle-de-bain.jpg';
-import teleImage from 'public/assets/tele.jpg';
 import { FaAirbnb } from 'react-icons/fa';
 
-import { Hero, Nav, Page, PhotoCard } from '@/components';
+import { images } from '@/_data';
+import { Gallery, Hero, Nav, Page } from '@/components';
 import { DISPONIBILITIES_URL } from '@/constants';
 
 const PageLanding = () => {
@@ -60,69 +49,16 @@ const PageLanding = () => {
         name="infos"
         py={10}
         px={{ base: 5, md: 10, lg: 20 }}
-        spacing={8}
+        spacing={6}
+        direction={{ base: 'column', lg: 'row' }}
       >
-        <AspectRatio ratio={16 / 9} minH={300} maxH={600}>
-          <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1vMKQxIFT1h92JL1RubFtrEfvQZcV6sWo&ehbc=2E312F"></iframe>
+        <Gallery images={images} rootProps={{ flex: 2 }} />
+        <AspectRatio ratio={16 / 9} minH={300} maxH={400} p={10} flex={1}>
+          <iframe
+            title="map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31106.142868017647!2d-60.96792426654188!3d14.453950904516928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c401f9d25fd8133%3A0x9fd3a0262daf1f5b!2sStudio%2C%20Le%20Mabouya!5e0!3m2!1sfr!2sfr!4v1642259754301!5m2!1sfr!2sfr"
+          ></iframe>
         </AspectRatio>
-
-        <Grid
-          templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(3, 1fr)' }}
-          gap={6}
-          alignItems="center"
-        >
-          <GridItem>
-            <PhotoCard src={residenceImage} alt="Résidence">
-              Une résidence avec piscine à quelques pas de la plage
-            </PhotoCard>
-          </GridItem>
-          <GridItem colSpan={2}>
-            <PhotoCard src={planImage} alt="Visualisation">
-              Une représentation virtuelle de l'appartement et son agencement
-            </PhotoCard>
-          </GridItem>
-          <GridItem>
-            <PhotoCard src={litImage} alt="Lit">
-              Un lit 140x200 pour se reposer après des journées ensoleillées
-            </PhotoCard>
-          </GridItem>
-          <GridItem>
-            <PhotoCard src={teleImage} alt="Télé">
-              Une télévision est disponible si vous souhaitez suivre vos
-              programmes favoris
-            </PhotoCard>
-          </GridItem>
-          <GridItem>
-            <PhotoCard src={canapeImage} alt="Canapé">
-              Un canapé pouvant servir de deuxième couchage, et le balcon pour
-              manger en profitant du soleil
-            </PhotoCard>
-          </GridItem>
-          <GridItem>
-            <PhotoCard src={cuisineImage} alt="Cuisine">
-              La cuisine équipée, notamment d'un four, d'une plaque de cuisson,
-              d'une machine à laver, d'un micro-onde, d'un grille-pain et d'une
-              cafetière
-            </PhotoCard>
-          </GridItem>
-          <GridItem rowSpan={2} alignSelf="flex-start">
-            <PhotoCard src={doucheImage} alt="Douche">
-              La salle de bain équipée d'une douche et de toilettes
-            </PhotoCard>
-          </GridItem>
-          <GridItem rowSpan={2} alignSelf="flex-start">
-            <PhotoCard src={salleDeBainImage} alt="Salle de bain">
-              Un grand meuble de salle de bain avec des rangements et un grand
-              miroir
-            </PhotoCard>
-          </GridItem>
-          <GridItem>
-            <PhotoCard src={equipementsImage} alt="Equipements">
-              Des équipements sont mis à votre disposition pour pouvoir profiter
-              au maximum pendant votre séjour
-            </PhotoCard>
-          </GridItem>
-        </Grid>
       </Stack>
     </Page>
   );
