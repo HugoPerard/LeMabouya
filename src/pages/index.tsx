@@ -11,7 +11,7 @@ import {
 import Link from 'next/link';
 import { FaAirbnb } from 'react-icons/fa';
 
-import { images } from '@/_data';
+import { images } from '@/_data-studio';
 import { Gallery, Hero, Nav, Page } from '@/components';
 import { DISPONIBILITIES_URL } from '@/constants';
 

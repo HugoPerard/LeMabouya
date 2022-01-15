@@ -15,7 +15,7 @@ import {
   IoChevronUpOutline,
 } from 'react-icons/io5';
 
-import { ProductImage } from '@/_data';
+import { ProductImage } from '@/_data-studio';
 import {
   Carousel,
   CarouselIconButton,
