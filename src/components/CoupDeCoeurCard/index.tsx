@@ -43,6 +43,7 @@ export const CoupDeCoeurCard = (props: Props) => {
       borderRadius="xl"
       overflow="hidden"
       minH={{ base: 'sm', lg: 'auto' }}
+      maxH={400}
       onClick={() => onOpen()}
       {...rootProps}
     >
@@ -91,7 +92,12 @@ export const CoupDeCoeurCard = (props: Props) => {
           </Stack>
         </Flex>
       </Link>
-      <Modal isOpen={isOpen} onClose={onClose} size="4xl">
+      <Modal
+        isOpen={isOpen}
+        onClose={onClose}
+        size="4xl"
+        scrollBehavior="inside"
+      >
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>{coupDeCoeur.name}</ModalHeader>
