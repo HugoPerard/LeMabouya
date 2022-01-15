@@ -1,9 +1,19 @@
 import React from 'react';
 
-import { Box, BoxProps, Text, Flex, HStack, Button } from '@chakra-ui/react';
+import {
+  Box,
+  BoxProps,
+  Link as ChakraLink,
+  Text,
+  Flex,
+  HStack,
+  Button,
+  Icon,
+} from '@chakra-ui/react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FaAirbnb } from 'react-icons/fa';
+import { FiExternalLink } from 'react-icons/fi';
 
 import { DISPONIBILITIES_URL } from '@/constants';
 
@@ -64,16 +74,11 @@ export const Nav = ({ color = 'gray.200', ...rest }) => {
         {/* <MainMenuItem to="/a-propos" colorScheme={itemColorScheme}>
           À propos
         </MainMenuItem> */}
-        <Link href={DISPONIBILITIES_URL} passHref>
-          <Button
-            target="_blank"
-            colorScheme="brand"
-            size="xs"
-            leftIcon={<FaAirbnb />}
-          >
-            Disponibilités
+        <ChakraLink href={DISPONIBILITIES_URL} isExternal passHref>
+          <Button colorScheme="brand" size="xs" leftIcon={<FaAirbnb />}>
+            Disponibilités <Icon as={FiExternalLink} ml={1} mb={0.5} />
           </Button>
-        </Link>
+        </ChakraLink>
       </HStack>
     </Flex>
   );
