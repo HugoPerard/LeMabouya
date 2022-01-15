@@ -1,19 +1,9 @@
 import React from 'react';
 
-import {
-  AspectRatio,
-  Button,
-  Heading,
-  LightMode,
-  Stack,
-  Text,
-} from '@chakra-ui/react';
-import Link from 'next/link';
-import { FaAirbnb } from 'react-icons/fa';
+import { AspectRatio, Heading, Stack, Text } from '@chakra-ui/react';
 
 import { images } from '@/_data-studio';
 import { Gallery, Hero, Nav, Page } from '@/components';
-import { DISPONIBILITIES_URL } from '@/constants';
 
 const PageLanding = () => {
   return (
@@ -27,21 +17,6 @@ const PageLanding = () => {
         <Text fontSize="lg" fontWeight="medium" mt="3">
           Studio les pieds dans l'eau en Martinique
         </Text>
-        <LightMode>
-          <Link href={DISPONIBILITIES_URL} passHref>
-            <Button
-              target="_blank"
-              colorScheme="blue"
-              size="lg"
-              mt="6"
-              fontWeight="bold"
-              fontSize="md"
-              leftIcon={<FaAirbnb />}
-            >
-              Regarder les disponibilités
-            </Button>
-          </Link>
-        </LightMode>
       </Hero>
 
       <Stack

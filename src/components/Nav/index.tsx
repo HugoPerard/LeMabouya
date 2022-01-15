@@ -75,7 +75,7 @@ export const Nav = ({ color = 'gray.200', ...rest }) => {
           À propos
         </MainMenuItem> */}
         <ChakraLink href={DISPONIBILITIES_URL} isExternal passHref>
-          <Button colorScheme="brand" size="xs" leftIcon={<FaAirbnb />}>
+          <Button variant="@airbnb" size="sm" leftIcon={<FaAirbnb />}>
             Disponibilités <Icon as={FiExternalLink} ml={1} mb={0.5} />
           </Button>
         </ChakraLink>

@@ -57,6 +57,14 @@ export default {
       colorHover: 'warning.700',
       boxShadowFocus: 'outline-warning',
     }),
+    '@airbnb': customVariant({
+      bg: 'airbnb.300',
+      bgHover: 'airbnb.400',
+      bgActive: 'airbnb.500',
+      color: 'gray.50',
+      colorHover: 'aibnb.50',
+      boxShadowFocus: 'outline-warning',
+    }),
 
     // Default variants
     solid: ({ colorScheme }) => ({
